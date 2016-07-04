@@ -1,0 +1,49 @@
+script(src='/javascripts/jquery.min.js')
+script(src="/javascripts/chart.min.js")
+
+canvas(id="chart" class="chart") 
+
+script(type="text/javascript").
+	var lineData = {
+		labels:["2010","2011","2012","2013","2014","2015"],
+		datasets:[
+			{
+				fillColor:"rgba(220,220,220,0.5)", //以下区域颜色，也支持rgb色等颜色表达方式
+				strokeColor:"rgba(220,220,220,1)", //线的颜色
+				pointColor:"rgba(220,220,220,1)",  //点的颜色
+				pointStrokeColor : "#fff",
+				data : [83,92,65,79,59,80]         //第一条线的数据
+			},
+			{
+				fillColor:"rgba(152,187,220,0.5)",
+				strokeColor:"rgba(152,187,220,1)",
+				pointColor:"rgba(152,187,220,1)",
+				pointStrokeColor : "#fff",
+				data : [66,83,74,91,55,86]         //第二条线的数据
+			}
+		]
+	}
+	window.onload = function(){
+		$("#chart").width("100%");
+		var elems = $(".chart");
+		for (var i = 0;i<elems.length;i++){
+			var ctx = elems[i].getContext("2d");
+			window.myline = new Chart(ctx).Line(lineData,{	//绘图
+				responsive: true
+			});
+		}
+		//- var ctx = document.getElementById("chart").getContext("2d"); //获取2d context
+		//- window.myline = new Chart(ctx).Line(lineData,{	//绘图
+		//- 	responsive: true
+		//- });
+	}
+	$(window).resize(function(){
+		$("#chart").width("100%");
+		var elems = $(".chart");
+		for (var i = 0;i<elems.length;i++){
+			var ctx = elems[i].getContext("2d");
+			window.myline = new Chart(ctx).Line(lineData,{	//绘图
+				responsive: true
+			});
+				}
+			});

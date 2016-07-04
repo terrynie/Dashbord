@@ -1,0 +1,49 @@
+extends layout
+
+block content
+	div(id='container')
+		header(class='amtopbar')
+			h1(class='am-topbar-brand')
+				//- 通过参数传入title
+				a(href='#')= title
+			button(class='am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only', data-am-collapse="{target: '#doc-topbar-collapse'}")
+				span(class='am-sr-only') 导航切换
+				span(class='am-icon-bars')
+			div(class='am-collapse am-topbar-collapse', id='doc-topbar-collapse')
+				ul(class='am-nav am-nav-pills am-topbar-nav')
+					li(class='am-active')
+						a(href='#') 下拉列表
+					li(class='am-dropdown', data-am-dropdown)
+						a(class='am-dropdown-toggle', data-am-dropdown-toggle, href='javascript:;') 下拉
+							span(class='am-icon-caret-down')
+						ul(class='am-dropdown-content')
+							li(class='am-dropdown-header') li header
+							li
+								a(href='#') 下拉列表01
+				div(class='am-topbar-right')
+					button(class='am-btn am-btn-primary am-topbar-btn am-btn-sm') 发起工单
+					//- li(class='am-dropdown', data-am-dropdown)
+					//- 	a(class='am-dropdown-toggle', data-am-dropdown-toggle, href='javascript:;' id="contact" style="background-color:#0e90d2;") 发起工单
+					//- 	ul(class='am-dropdown-content')
+					//- 		li(class='am-dropdown-header') li header
+					//- 		li
+					//- 			a(href='#') 下拉列表01
+		div(class='am-g')
+			div(class='am-u-sm-12 am-u-md-6 am-u-lg-4', id='bo1')
+				//- 使用include引入
+				include ./chart.jade
+			div(class='am-u-sm-12 am-u-md-6 am-u-lg-4', id='bo1')
+				include ./chart.jade
+			div(class='am-u-sm-12 am-u-md-6 am-u-lg-4', id='bo1')
+				include ./chart.jade
+		div(class='am-g')
+			div(class='am-u-sm-12 am-u-md-6 am-u-lg-4', id='bo1')
+				//- 使用iframe引入
+				iframe(src='http://localhost:3000/chart')
+			div(class='am-u-sm-12 am-u-md-6 am-u-lg-4', id='bo1')
+				include ./chart.jade
+			div(class='am-u-sm-12 am-u-md-6 am-u-lg-4', id='bo1')
+				include ./chart.jade
+	script(src='/javascripts/jquery.min.js')
+	script(src='/javascripts/amazeui.min.js')
+
